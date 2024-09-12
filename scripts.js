@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-  
   let segmR = Array.from(document.getElementsByClassName("segmR"));
   segmR.forEach((segm, i) => {
     let deg = 30 * i;
@@ -7,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function() {
     segm.style.transformOrigin = "bottom left";
   });
 
-  
   let segmL = Array.from(document.getElementsByClassName("segmL"));
   segmL.forEach((segm, i) => {
     let deg = -30 * (i + 1);
@@ -15,14 +13,12 @@ document.addEventListener("DOMContentLoaded", function() {
     segm.style.transformOrigin = "bottom left";
   });
 
-
   let rings = Array.from(document.getElementsByClassName("ring"));
   rings.forEach((ring, i) => {
     ring.style.width = 200 - 50 * i + "px";
     ring.style.height = 40 - 10 * i + "px";
     ring.style.margin = 10 - 10 * i + "px";
   });
-
 
   let tl1 = gsap.timeline({
     repeat: -1,
@@ -72,11 +68,15 @@ document.addEventListener("DOMContentLoaded", function() {
       "<"
     );
 
-
   let audio = document.getElementById("background-audio");
+  let audioPlayed = false;
+
   document.addEventListener("click", function() {
-    audio.play().catch((error) => {
-      console.error("No se pudo reproducir el audio:", error);
-    });
+    if (!audioPlayed) {
+      audio.play().catch((error) => {
+        console.error("No se pudo reproducir el audio:", error);
+      });
+      audioPlayed = true;
+    }
   });
 });

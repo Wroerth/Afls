@@ -74,8 +74,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   let audio = document.getElementById("background-audio");
-
-  audio.play().catch((error) => {
-    console.error("No se pudo reproducir el audio:", error);
+  document.addEventListener("click", function() {
+    audio.play().catch((error) => {
+      console.error("No se pudo reproducir el audio:", error);
+    });
   });
 });

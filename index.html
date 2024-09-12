@@ -29,5 +29,19 @@
     Tu navegador no soporta la etiqueta de audio.
   </audio>
   <script src="scripts.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // ... tu código existente para la animación ...
+
+      let audio = document.getElementById("background-audio");
+
+      // Agregar un evento de clic al documento
+      document.addEventListener("click", function() {
+        audio.play().catch((error) => {
+          console.error("No se pudo reproducir el audio:", error);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
